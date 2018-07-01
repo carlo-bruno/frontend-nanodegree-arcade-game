@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Classic Arcade Game | Carlo Bruno</title>
 
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
 
     <div id="title-modal" class="modal">
         <div class="modal-in">
-            <h1 id="title">Classic Arcade Game</h1>
+            <i class="fas fa-gamepad"></i>
+            <h1 class="title">Classic Arcade Game</h1>
             <p> Udacity Front-End Nanodegree</p>
             <p>&copy; 2018 Carlo Bruno</p>
-            
+
             <button id="play-game">Play Game!</button>
         </div>
     </div>
-    
-    <div id="score-modal" class="modal hide-modal">
+
+    <div id="game-over-modal" class="modal hide-modal">
         <div class="modal-in">
+            <i class="fas fa-skull"></i>
             <h1>Game Over!</h1>
-            <p> You survived <span class="level"></span> levels.</p>
-            
+            <p> Your score: <span class="final-score"></span></p>
+
             <button id="play-again">Play Again?</button>
         </div>
     </div>
-    
-    <div id="game-board"></div>
-    
-    
 
+    <div id="game-board" class="hide-modal">
+        <div class="score-panel">
+            <p>Score: <span id="score">000</span></p>
+            <p>Life: <span id="life">* * *</span></p>
+        </div>
+    </div>
+
+    <script src="js/screen.js"></script>
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>
-    <script src="js/screen.js"></script>
-    
+
 </body>
+
 </html>

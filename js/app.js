@@ -4,8 +4,8 @@ const Enemy = function(lane) {
     // we've provided one for you to get started
     this.x = 0;
     this.y = lane;
-    this.speed = 100 + Math.random() * 500;
-    
+    this.speed = (Math.floor(Math.random() * 200 + 100));
+
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -17,18 +17,27 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    
+
     this.x += this.speed * dt;
-    
+
     if (this.x >= 600) {
         this.x = -100;
-        this.speed = 100 + Math.random() * 500;
+        this.speed = (Math.floor(Math.random() * 200 + 100) + (player.score/2));
     }
-    
+
     if (player.x < this.x + 75 && player.x + 75 > this.x &&
         player.y < this.y + 20 && player.y + 20 > this.y ) {
         player.x = 204;
         player.y = 404;
+
+        player.life -= 1;
+        console.log(player.life);
+
+        if (player.life === 0) {
+            gameOver();
+            player.score = 0;
+            player.life = 3;
+        }
     }
 };
 
@@ -44,15 +53,21 @@ const Player = function() {
     this.sprite = 'images/char-boy.png';
     this.x = 204;
     this.y = 404;
+
+    this.score = 0;
+    this.life = 3;
 }
 
 Player.prototype.update = function() {
-    if (this.y <= 0) { 
-        setTimeout( function() {
-                   player.x = 204;
-                   player.y = 404;
-                   }, 300);
+    if (this.y < 0) {
+        player.x = 204;
+        player.y = 404;
+        this.score += 100;
+        console.log(this.score);
     }
+
+    lifeSpan.innerHTML = this.life;
+    scoreSpan.innerHTML = this.score;
 };
 
 Player.prototype.render = function() {
@@ -86,9 +101,7 @@ enemyLanes.forEach(function(lane) {
     allEnemies.push(enemy);
 });
 
-
 let player = new Player();
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
