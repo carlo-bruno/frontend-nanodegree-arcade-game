@@ -22,7 +22,7 @@ Enemy.prototype.update = function(dt) {
 
     if (this.x >= 600) {
         this.x = -100;
-        this.speed = (Math.floor(Math.random() * 200 + 100) + (player.score/2));
+        this.speed = (Math.floor(Math.random() * 200 + 100) + (player.score/5));
     }
 
     if (player.x < this.x + 75 && player.x + 75 > this.x &&
@@ -56,7 +56,7 @@ const Player = function() {
 
     this.score = 0;
     this.life = 3;
-}
+};
 
 Player.prototype.update = function() {
     if (this.y < 0) {
@@ -66,8 +66,18 @@ Player.prototype.update = function() {
         console.log(this.score);
     }
 
-    lifeSpan.innerHTML = this.life;
     scoreSpan.innerHTML = this.score;
+    if (this.life == 3) {
+        hearts.forEach(function(heart){
+            heart.setAttribute('class', 'fas fa-heart');
+        });
+    }
+    if (this.life == 2) {
+        hearts[2].setAttribute('class', 'far fa-heart');
+    }
+    if (this.life == 1) {
+        hearts[1].setAttribute('class', 'far fa-heart');
+    }
 };
 
 Player.prototype.render = function() {
@@ -97,7 +107,7 @@ Player.prototype.handleInput = function (keyPress) {
 let allEnemies = [];
 let enemyLanes = [60, 143, 226];
 enemyLanes.forEach(function(lane) {
-    enemy = new Enemy(lane);
+    let enemy = new Enemy(lane);
     allEnemies.push(enemy);
 });
 

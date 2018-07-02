@@ -3,23 +3,27 @@ body {
     margin: 0;
     height: 100%;
     overflow: hidden;
-    
+
     background: #c5c5c5 url("../images/gaming-pattern.png") repeat;
+
+    font-family: 'Press Start 2P', cursive;
 }
 /* background image from www.toptal.com/designers/subtlepatterns/*/
 
+li {
+    list-style: none;
+    display: inline;
+}
 
 .modal {
     position: fixed;
-    
+
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
-/*    animation: bg-change 3s infinite;*/
-    
-    font-family: 'Press Start 2P', cursive;
+
     font-size: 1rem;
 }
 
@@ -46,28 +50,25 @@ body {
     animation: color-change 1s linear infinite alternate;
 }
 
-.fas {
+.icon-big {
     font-size: 3em;
     animation: color-change 1s linear infinite alternate;
-
 }
-
 
 #play-game, #play-again {
     position: absolute;
     left: 10%;
     bottom: 10%;
-    
+
     width: 80%;
     height: 50px;
-    
+
     border-radius: 5px;
-    
+
     font-family: inherit;
     font-size: 1.2rem;
-    
-    animation: blinking 1s linear infinite;
 
+    animation: blinking 1s linear infinite;
 }
 
 @keyframes blinking {
@@ -104,8 +105,11 @@ body {
 .score-panel {
     display: flex;
     text-align: center;
+
     font-size: 1.2em;
+
     padding-top: 20px;
+    height: 10px;
 }
 
 .score-panel p {
@@ -114,4 +118,14 @@ body {
 
 .score-panel p:first-child {
     margin-right: auto;
+}
+
+.score-panel ul {
+    padding: 0 20px 0 10px;
+}
+
+.fa-heart {
+    color: #fa3245;
+    font-size: 1.8rem;
+    letter-spacing: -12px;
 }

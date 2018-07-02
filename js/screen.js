@@ -2,7 +2,7 @@ const titleScreen = document.querySelector('#title-modal'),
       overScreen = document.querySelector('#game-over-modal'),
       board = document.querySelector('#game-board'),
       scoreSpan = document.querySelector('#score'),
-      lifeSpan = document.querySelector('#life'),
+      hearts = document.querySelectorAll('.fa-heart'),
       finalScore = document.querySelector('.final-score');
 
 
@@ -23,4 +23,4 @@ const gameOver = function() {
     board.classList.add('hide-modal');
     overScreen.classList.toggle('hide-modal');
     finalScore.innerHTML = player.score;
-}
+};

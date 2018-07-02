@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,7 @@
 
     <div id="title-modal" class="modal">
         <div class="modal-in">
-            <i class="fas fa-gamepad"></i>
+            <i class="fas fa-gamepad icon-big"></i>
             <h1 class="title">Classic Arcade Game</h1>
             <p> Udacity Front-End Nanodegree</p>
             <p>&copy; 2018 Carlo Bruno</p>
@@ -25,7 +25,7 @@
 
     <div id="game-over-modal" class="modal hide-modal">
         <div class="modal-in">
-            <i class="fas fa-skull"></i>
+            <i class="fas fa-skull icon-big"></i>
             <h1>Game Over!</h1>
             <p> Your score: <span class="final-score"></span></p>
 
@@ -36,7 +36,12 @@
     <div id="game-board" class="hide-modal">
         <div class="score-panel">
             <p>Score: <span id="score">000</span></p>
-            <p>Life: <span id="life">* * *</span></p>
+            <p>Life:</p>
+                <ul>
+                <li><i class="fas fa-heart"></i></li>
+                <li><i class="fas fa-heart"></i></li>
+                <li><i class="fas fa-heart"></i></li>
+                </ul>
         </div>
     </div>
 
