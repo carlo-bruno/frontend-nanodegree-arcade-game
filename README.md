@@ -13,8 +13,8 @@
 
 ## Introduction
 
-<img src="img/ss-arcade-game-1.png" width="500">
-<img src="img/ss-arcade-game-2.png" width="500">
+<img src="images/ss-arcade-game-1.png" width="500">
+<img src="images/ss-arcade-game-2.png" width="500">
 
 A game program based on the classic arcade game [Frogger](https://en.wikipedia.org/wiki/Frogger). The goal is to guide the player character to the water while avoiding the bugs.
 
