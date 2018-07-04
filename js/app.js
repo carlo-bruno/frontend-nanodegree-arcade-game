@@ -1,22 +1,15 @@
-// Enemies our player must avoid
+// Enemy Class
 const Enemy = function(lane) {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
     this.x = 0;
     this.y = lane;
     this.speed = (Math.floor(Math.random() * 200 + 100));
 
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
 };
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
 
     this.x += this.speed * dt;
 
@@ -31,7 +24,6 @@ Enemy.prototype.update = function(dt) {
         player.y = 404;
 
         player.life -= 1;
-        console.log(player.life);
 
         if (player.life === 0) {
             gameOver();
@@ -46,9 +38,7 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+// Player Class
 const Player = function() {
     this.sprite = 'images/char-boy.png';
     this.x = 204;
@@ -59,13 +49,14 @@ const Player = function() {
 };
 
 Player.prototype.update = function() {
+    // update player location when it reaches water
     if (this.y < 0) {
-        player.x = 204;
-        player.y = 404;
+        this.x = 204;
+        this.y = 404;
         this.score += 100;
-        console.log(this.score);
     }
 
+    // update Score Panel score and life
     scoreSpan.innerHTML = this.score;
     if (this.life == 3) {
         hearts.forEach(function(heart){
@@ -80,10 +71,12 @@ Player.prototype.update = function() {
     }
 };
 
+// Draw the player sprite
 Player.prototype.render = function() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     };
 
+// Input Handler for player character
 Player.prototype.handleInput = function (keyPress) {
     if (keyPress == 'left' && this.x > 0) {
         this.x -= 102;
@@ -101,8 +94,6 @@ Player.prototype.handleInput = function (keyPress) {
 
 
 // Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
 
 let allEnemies = [];
 let enemyLanes = [60, 143, 226];
